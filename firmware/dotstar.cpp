@@ -119,10 +119,10 @@ inline void Adafruit_DotStar::hw_spi_end(void) { // Stop hardware SPI
 }
 
 void Adafruit_DotStar::sw_spi_init(void) { // Init 'soft' (bitbang) SPI
-  pinMode(dataPin , OUTPUT);
+  /*pinMode(dataPin , OUTPUT);
   pinMode(clockPin, OUTPUT);
   pinSet(dataPin , LOW);
-  pinSet(clockPin, LOW);
+  pinSet(clockPin, LOW);*/
 }
 
 void Adafruit_DotStar::sw_spi_end() { // Stop 'soft' SPI
