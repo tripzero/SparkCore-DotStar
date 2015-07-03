@@ -106,7 +106,7 @@ void Adafruit_DotStar::updateLength(uint16_t n) {
 
 void Adafruit_DotStar::hw_spi_init(void) { // Initialize hardware SPI
   SPI.begin();
-  // 72MHz / 4 = 18MHz (sweet spot)
+  // 72MHz / 4 = 18MHz (sweet spot)c
   // Any slower than 18MHz and you are barely faster than Software SPI.
   // Any faster than 18MHz and the code overhead dominates.
   SPI.setClockDivider(SPI_CLOCK_DIV4);
@@ -199,7 +199,7 @@ void Adafruit_DotStar::show(void) {
       } while(--n);
     }
     for(i=0; i<4; i++) sw_spi_out(0xFF); // End-frame marker (see note above)
-  }*/
+  */}
 
   //__enable_irq();
 }
