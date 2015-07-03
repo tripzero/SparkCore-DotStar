@@ -34,11 +34,6 @@
 
 #include "dotstar.h"
 
-// fast pin access
-#define pinLO(_pin) (PIN_MAP[_pin].gpio_peripheral->BRR = PIN_MAP[_pin].gpio_pin)
-#define pinHI(_pin) (PIN_MAP[_pin].gpio_peripheral->BSRR = PIN_MAP[_pin].gpio_pin)
-#define pinSet(_pin, _hilo) (_hilo ? pinHI(_pin) : pinLO(_pin))
-
 #define spi_out(n) (void)SPI.transfer(n)
 
 #define USE_HW_SPI 255 // Assign this to dataPin to indicate 'hard' SPI
@@ -136,12 +131,12 @@ void Adafruit_DotStar::sw_spi_end() { // Stop 'soft' SPI
 }
 
 void Adafruit_DotStar::sw_spi_out(uint8_t n) { // Bitbang SPI write
-  for(uint8_t i=8; i--; n <<= 1) {
+  /*for(uint8_t i=8; i--; n <<= 1) {
     if(n & 0x80) pinSet(dataPin, HIGH);
     else         pinSet(dataPin, LOW);
     pinSet(clockPin, HIGH);
     pinSet(clockPin, LOW);
-  }
+  }*/
 }
 
 /* ISSUE DATA TO LED STRIP -------------------------------------------------
@@ -191,7 +186,7 @@ void Adafruit_DotStar::show(void) {
 
   } else {                               // Soft (bitbang) SPI
 
-    for(i=0; i<4; i++) sw_spi_out(0);    // Start-frame marker
+    /*for(i=0; i<4; i++) sw_spi_out(0);    // Start-frame marker
     if(brightness) {                     // Scale pixel brightness on output
       do {                               // For each pixel...
         sw_spi_out(0xFF);                //  Pixel start
@@ -204,7 +199,7 @@ void Adafruit_DotStar::show(void) {
       } while(--n);
     }
     for(i=0; i<4; i++) sw_spi_out(0xFF); // End-frame marker (see note above)
-  }
+  }*/
 
   //__enable_irq();
 }
