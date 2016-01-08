@@ -1,8 +1,8 @@
 {
-  "name": "dotstar",
-  "author": "Adafruit, Technobly",
+  "name": "dotstar_lp",
+  "author": "Adafruit, Technology",
   "license": "GNU GPLv3",
-  "version": "0.0.2",
-  "description": "An Implementation of Adafruit's DotStar Library for the Spark Core",
+  "version": "0.0.3",
+  "description": "An fork of Adafruit's DotStar Library for the Particle Photon.  Added to the library is a wrapper class for use with the LightProtocol library.",
   "namespace": "Adafruit_DotStar"
 }
