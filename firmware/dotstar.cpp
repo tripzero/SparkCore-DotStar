@@ -106,10 +106,9 @@ void Adafruit_DotStar::updateLength(uint16_t n) {
 
 void Adafruit_DotStar::hw_spi_init(void) { // Initialize hardware SPI
   SPI.begin();
-  // 72MHz / 4 = 18MHz (sweet spot)c
-  // Any slower than 18MHz and you are barely faster than Software SPI.
-  // Any faster than 18MHz and the code overhead dominates.
-  SPI.setClockDivider(SPI_CLOCK_DIV4);
+  // This is modified for the photon.  This works much better for long strips:
+  // original setting was DIV4
+  SPI.setClockDivider(SPI_CLOCK_DIV128);
   SPI.setBitOrder(MSBFIRST);
   SPI.setDataMode(SPI_MODE0);
 }
