@@ -32,7 +32,7 @@
   License along with NeoPixel.  If not, see <http://www.gnu.org/licenses/>.
   ------------------------------------------------------------------------*/
 
-#include "dotstar.h"
+#include "dotstar_lp.h"
 
 #define spi_out(n) (void)SPI.transfer(n)
 
